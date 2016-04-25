@@ -13,10 +13,10 @@
 
 A collection of components and blueprints for showcasing frost components
 
- * [Installation](#Installation)
- * [Getting Started](#Getting Started)
- * [Components](#Components)
- * [Blueprints](#Blueprints)
+ * [Installation](#installation)
+ * [Getting Started](#getting-started)
+ * [Components](#components)
+ * [Blueprints](#blueprints)
 
 
 ## Installation
