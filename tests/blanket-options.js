@@ -1,8 +1,8 @@
 /* globals blanket, module */
 
 var options = {
-  modulePrefix: 'ember-frost-demo-components',
-  filter: '//.*ember-frost-demo-components/.*/',
+  modulePrefix: 'frost-demo-components',
+  filter: '//.*frost-demo-components/.*/',
   antifilter: '//.*(tests|template).*/',
   loaderExclusions: [],
   enableCoverage: true,
@@ -12,7 +12,7 @@ var options = {
     lcovOptions: {
       outputFile: 'coverage/lcov.info',
       renamer (fileName) {
-        return fileName.replace('ember-frost-demo-components', 'addon') + '.js'
+        return fileName.replace('frost-demo-components', 'addon') + '.js'
       }
     }
   }

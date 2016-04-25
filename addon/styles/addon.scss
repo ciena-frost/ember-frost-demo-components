@@ -1,0 +1,280 @@
+@import './node_modules/ember-frost-core/addon/styles/addon';
+@import './github-markdown';
+
+.tooltip-frost-popover .frost-button {
+  width: 100%;
+}
+
+.demo-navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9000;
+
+  .frost-button {
+    height: 50px;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    .text {
+      color: $frost-color-grey-5;
+      margin-left: 0;
+    }
+
+    .icon-text {
+      min-width: auto;
+    }
+  }
+
+  .app-bar-icon, .frost-icon, .frost-svg {
+    height: 35px;
+    width: 35px;
+    transition: transform .2s;
+  }
+
+  .frost-icon.expand {
+    height: 18px;
+    width: 18px;
+    margin: 5px;
+  }
+
+  .hoverable-action:hover, .active .hoverable-action {
+    color: $frost-color-white;
+    border-bottom: 5px solid #009ADE;
+    border-top: 5px solid transparent;
+    border-radius: 0;
+    margin-bottom: -5px;
+
+    .app-bar-icon, .frost-icon, .frost-svg {
+      transform: scale(1.1);
+    }
+
+    .text {
+      color: $frost-color-white;
+    }
+  }
+}
+
+.demo-navbar {
+  position: relative;
+  height: 50px;
+  display: flex;
+  background-color: #33424F;
+  z-index: 1;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+
+  .brand {
+    padding: 0;
+
+    .frost-icon {
+      margin: 0px 30px;
+      height: 25px;
+      width: 125px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .navigation {
+    cursor: pointer;
+    padding: 0px 10px;
+
+    &.menu {
+      padding: 0px 20px;
+    }
+  }
+}
+
+.tooltip.bottom.tooltip-frost-popover {
+  border: none;
+  background: transparent;
+
+  &:after {
+    top: 1px;
+    border-top: 0px;
+    border-bottom: 10px solid white;
+    border-left:  8px solid transparent;
+    border-right: 8px solid transparent;
+    background: transparent;
+    height: 0;
+    width: 0;
+    margin-left: -5px;
+    transform: none;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .popup-menu {
+    width: 100%;
+    background: #FFF;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 5px rgba(146,148,151,.5);
+    text-shadow: none;
+
+    a {
+      text-decoration: none
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    li {
+      border-bottom: solid 1px #E8E8EF;
+      color: #404041;
+      cursor: pointer;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 15px;
+      width: 100%;
+
+      &:hover {
+        background: rgba(0,158,239,.08);
+      }
+    }
+  }
+}
+
+.demo-container {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  right: 20px;
+  margin-bottom: 20px;
+
+  &.fullscreen {
+    bottom: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.demo-banner {
+  height: 80px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 10px 0;
+  }
+
+  p:before {
+    content: '> '
+  }
+
+  p {
+    font-size: 18px;
+    color: #888;
+    padding: 5px 0;
+    margin: 0;
+    border-radius: 5px;
+    font-weight: 100;
+  }
+}
+
+.demo-editor {
+  border: 1px solid #ccc;
+
+  .ribbon {
+    height: 35px;
+    color: #888;
+    border-bottom: 1px solid #ccc;
+    background-color: #f5f5f5;
+
+    .tabs {
+      display: flex;
+      height: 35px;
+      align-items: center;
+
+      .tab {
+        margin: 2px;
+        font-size: 15px;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:hover, &.active {
+          background-color: #888;
+          border-radius: 10px;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .demo-doc {
+    width: 100%;
+    background-color: white;
+    padding: 5px 10px;
+  }
+
+  .demo-code {
+    width: 100%;
+
+    .CodeMirror {
+      height: 100%;
+    }
+  }
+}
+
+.demo-showcase {
+  position: relative;
+
+  .demo-editor {
+    width: 750px;
+  }
+
+  .demo-view {
+    position: absolute;
+    width: calc(100% - 750px);
+    top: 0px;
+    left: 750px;
+  }
+}
+
+.fullscreen .demo-showcase {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #ccc;
+
+  .demo-editor {
+    height: 100%;
+    border: none;
+    border-right: 1px solid #ccc;
+
+    .ribbon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 35px;
+      height: auto;
+      bottom: 0;
+      border-right: 1px solid #ccc;
+      border-bottom: none;
+
+      .tabs {
+        transform: rotate(-90deg) translateX(-200px);
+        transform-origin: left top;
+      }
+    }
+
+    .demo-doc, .demo-code {
+      width: calc(100% - 35px);
+      margin-left: 35px;
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+
+  .demo-view {
+    bottom: 0;
+  }
+}

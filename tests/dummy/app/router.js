@@ -6,7 +6,8 @@ var Router = Ember.Router.extend({
 })
 
 Router.map(function () {
-  this.route('demo', { path: '/' })
+  this.route('non-fullscreen', { path: '/' })
+  this.route('fullscreen')
 })
 
 export default Router
