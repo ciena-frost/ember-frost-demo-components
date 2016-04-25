@@ -3,7 +3,7 @@ module.exports = function (environment) {
     modulePrefix: 'dummy',
     podModulePrefix: 'dummy/pods',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/ember-frost-demo-components',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
