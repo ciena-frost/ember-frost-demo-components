@@ -17,6 +17,7 @@ A collection of components and blueprints for showcasing frost components
  * [Getting Started](#getting-started)
  * [Components](#components)
  * [Blueprints](#blueprints)
+ * [Contributing](#development)
 
 
 ## Installation
@@ -28,68 +29,68 @@ ember install ember-frost-demo-components
 
 1. This *addon* installs `CodeMirror` and `Prism` for source editing and syntax highlighting.  You must update `ember-cli-build.js` to include options for those *addons* to bring in necessary bower modules.
 
-```js
-var app = EmberApp(defaults, {
-  codemirror: {
-    modes: ['javascript'],
-    // frost-demo-editor defaults to 'mdn-like'
-    themes: ['mdn-like']
-  },
-  'ember-prism': {
-    // whatever your preference
-    theme: 'coy',
-    components: ['javascript']
-  }
-  ...
-})
-```
+  ```js
+  var app = EmberApp(defaults, {
+    codemirror: {
+      modes: ['javascript'],
+      // frost-demo-editor defaults to 'mdn-like'
+      themes: ['mdn-like']
+    },
+    'ember-prism': {
+      // whatever your preference
+      theme: 'coy',
+      components: ['javascript']
+    }
+    ...
+  })
+  ```
 
 2. Update your application template to include `frost-demo-navbar`
 
-```hbs
-{{frost-demo-bar links=links}}
-{{outlet}}
-```
+  ```hbs
+  {{frost-demo-bar links=links}}
+  {{outlet}}
+  ```
 
 3. Update your application controller with navigation links
 
-```js
-export default Ember.Controller.extend({
-  links: [
-    {
-      title: 'Demo Title',
-      route: 'demo-route'
-    }
-  ]
-})
-```
+  ```js
+  export default Ember.Controller.extend({
+    links: [
+      {
+        title: 'Demo Title',
+        route: 'demo-route'
+      }
+    ]
+  })
+  ```
 
 4. Generate a demo
 
-```bash
-ember generate frost-demo my-demo --dummy --pod
-```
+  ```bash
+  ember generate frost-demo my-demo --dummy --pod
+  ```
 
-This generates the following files
-```
-tests/dummy
-  └── files
-    └── my-demo.js
-    └── my-demo.md
-  └── app/pods
-    └── my-demo
-      └── controller.js
-      └── route.js
-      └── template.hbs
-```
+  This generates the following files
+  ```
+  tests/dummy
+    └── files
+      └── my-demo.js
+      └── my-demo.md
+    └── app/pods
+      └── my-demo
+        └── controller.js
+        └── route.js
+        └── template.hbs
+  ```
 
 5. Update `my-demo.js` and `my-demo.md` with the source code and documentation.
 
 6. Update `router.js` with the new routes.
 
-```js
-router.map('my-demo')
-```
+  ```js
+  router.map('my-demo')
+  ```
 
 7. Continue steps 3-6 for each demo you want to generate.
 
