@@ -27,7 +27,7 @@ ember install ember-frost-demo-components
 
 ## Getting Started
 
-1. This *addon* installs `CodeMirror` and `Prism` for source editing and syntax highlighting.  You must update `ember-cli-build.js` to include options for those *addons* to bring in necessary bower modules.
+1. This *addon* installs `CodeMirror` and `Prism` for source editing and syntax highlighting.  You must update `ember-cli-build.js` to include options for those *addons* to bring in necessary themes.
 
   ```js
   var app = EmberApp(defaults, {
@@ -122,7 +122,7 @@ npm install && bower install
 ```
 
 ### Development Server
-A dummy application for development is available under `ember-frost-core/tests/dummy`.
+A dummy application for development is available under `ember-frost-demo-components/tests/dummy`.
 To run the server run `ember server` (or `npm start`) from the root of the repository and
 visit the app at http://localhost:4200.
 

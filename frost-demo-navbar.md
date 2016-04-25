@@ -37,5 +37,5 @@ links=[
 ```
 
 ```hbs
-{{frost-demo-editor path='foo'}}
+{{frost-demo-navbar links=links}}
 ```
