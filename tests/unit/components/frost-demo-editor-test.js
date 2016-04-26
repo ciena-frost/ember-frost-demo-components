@@ -92,7 +92,6 @@ describeComponent(
         this.$('.ribbon .code').click()
         Ember.run(() => {
           expect(component.get('showCode')).to.equal(true)
-          expect
           done()
         })
       })
