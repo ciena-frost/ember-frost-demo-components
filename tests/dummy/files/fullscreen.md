@@ -11,7 +11,7 @@ ember generate demo my-awesome-fullscreen-demo --fullscreen --dummy --pod
     <p>Demo description goes here</p>
   </div>
   <div class="demo-showcase">
-    {{demo-editor path='non-fullscreen'}}
+    {{frost-demo-editor path='non-fullscreen'}}
     <div class="demo-view">
     Place you demo here
     </div>

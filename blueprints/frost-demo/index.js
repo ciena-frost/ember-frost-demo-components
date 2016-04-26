@@ -3,6 +3,14 @@ var path = require('path')
 module.exports = {
   description: 'Generates a frost demo route',
 
+  availableOptions: [
+    {
+      name: 'fullscreen',
+      type: Boolean,
+      default: false
+    }
+  ],
+
   locals: function (options) {
     if (!options.pod) {
       throw new Error('Must use with pods')
