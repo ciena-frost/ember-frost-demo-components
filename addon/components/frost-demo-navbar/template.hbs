@@ -1,0 +1,29 @@
+<div class='demo-navbar'>
+  {{#frost-button class='brand hoverable-action' priority='' size=''}}
+      {{frost-icon icon='app/company'}}
+  {{/frost-button}}
+
+  {{#each links as |link|}}
+    {{#link-to link.route}}
+      {{#frost-button class='navigation menu hoverable-action' priority='' size=''}}
+        <div class='icon-text'>
+          <div class='text'>{{link.title}}</div>
+          {{#if link.links}}{{frost-icon class='expand' icon='frost/expand-collapse'}}{{/if}}
+        </div>
+        {{#if link.links}}
+          {{#frost-popover place='bottom' as |close|}}
+           <div class='popup-menu'>
+             <ul>
+               {{#each link.links as |link|}}
+                {{#link-to link.route}}
+                   <li id='{{link.route}}'>{{link.title}}</li>
+                {{/link-to}}
+               {{/each}}
+             </ul>
+           </div>
+         {{/frost-popover}}
+        {{/if}}
+      {{/frost-button}}
+    {{/link-to}}
+  {{/each}}
+</div>

@@ -1,0 +1,19 @@
+<div class="ribbon">
+  <div class="tabs">
+    <div class="tab code {{codeClass}}">
+      Code
+    </div>
+    <div class="tab doc {{docClass}}">
+      Documentation
+    </div>
+  </div>
+</div>
+{{#if showCode}}
+  <div class="demo-code">
+    {{ivy-codemirror value=source lineNumbers=true mode='javascript' theme=codeTheme}}
+  </div>
+{{else}}
+  <div class="demo-doc">
+    {{markdown-to-html markdown=documentation ghCodeBlocks=true}}
+  </div>
+{{/if}}
