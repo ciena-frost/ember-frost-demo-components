@@ -3,23 +3,39 @@
 import Ember from 'ember'
 import layout from './template'
 import files from 'ember-frost-demo-components/files'
+import computed, {readOnly} from 'ember-computed-decorators'
+import PropTypeMixin, {PropTypes} from 'ember-prop-types'
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(PropTypeMixin, {
   layout,
   classNames: ['demo-editor'],
-  showCode: false,
-  path: '',
-  documentation: '',
-  source: '',
-  codeTheme: 'mdn-like',
+  propTypes: {
+    codeTheme: PropTypes.string,
+    path: PropTypes.string.isRequired,
+    showCode: PropTypes.bool
+  },
 
-  codeClass: Ember.computed('showCode', function () {
-    return this.get('showCode') ? 'active' : ''
-  }),
+  getDefaultProps () {
+    return {
+      codeTheme: 'mdn-like',
+      documentation: '',
+      path: '',
+      showCode: false,
+      source: ''
+    }
+  },
 
-  docClass: Ember.computed('showCode', function () {
-    return this.get('showCode') ? '' : 'active'
-  }),
+  @readOnly
+  @computed('showCode')
+  codeClass: function (showCode) {
+    return showCode ? 'active' : ''
+  },
+
+  @readOnly
+  @computed('showCode')
+  docClass: function (showCode) {
+    return showCode ? '' : 'active'
+  },
 
   init () {
     this._super(...arguments)
@@ -41,17 +57,20 @@ export default Ember.Component.extend({
   },
 
   didInsertElement () {
-    this.$('.ribbon .tab').click((e) => {
+    this._tabClickHandler = (e) => {
       let target = Ember.$(e.target)
 
       Ember.run(() => {
-        if (target.closest('.code').length > 0) {
-          this.set('showCode', true)
-        } else {
-          this.set('showCode', false)
-        }
+        const showCode = target.closest('.code').length > 0
+        this.set('showCode', showCode)
       })
-    })
+    }
+
+    this.$('.ribbon .tab').on('click', this._tabClickHandler)
+  },
+
+  willDestroyElement () {
+    this.$('.ribbon .tab').off('click', this._tabClickHandler)
   },
 
   didRender () {
