@@ -14,6 +14,11 @@ module.exports = function (environment) {
   }
 
   switch (environment) {
+    case 'development':
+      _.assign(ENV, {
+        baseURL: '/'
+      })
+      break
     case 'test':
       _.assign(ENV, {
         baseURL: '/',
