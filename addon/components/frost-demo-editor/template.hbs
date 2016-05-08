@@ -9,8 +9,10 @@
   </div>
 </div>
 {{#if showCode}}
+  {{frost-file-explorer fileTree=fileTree isCollapsed=collapseExplorer onFileClick='onFileClick'}}
+  <div class='tab-gutter'></div>
   <div class="demo-code">
-    {{ivy-codemirror value=source lineNumbers=true mode='javascript' theme=codeTheme}}
+    {{ivy-codemirror value=source lineNumbers=true mode=mode theme=codeTheme}}
   </div>
 {{else}}
   <div class="demo-doc">
