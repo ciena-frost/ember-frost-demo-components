@@ -15,13 +15,15 @@ describeComponent(
     needs: [
       'component:ivy-codemirror',
       'component:markdown-to-html',
+      'component:frost-file-explorer',
       'helper:if'
     ],
 
     beforeSetup () {
       registryHelper.setup(resolver, {
         'component:ivy-codemirror': Ember.Component.extend({}),
-        'component:markdown-to-html': Ember.Component.extend({})
+        'component:markdown-to-html': Ember.Component.extend({}),
+        'component:frost-file-explorer': Ember.Component.extend({})
       })
     },
 
