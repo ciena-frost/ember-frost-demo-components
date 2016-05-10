@@ -215,9 +215,14 @@
 
   .demo-code {
     width: 100%;
+    position: relative;
 
     .CodeMirror {
       height: 100%;
+
+      .CodeMirror-code {
+        min-height: 400px;
+      }
     }
   }
 }
@@ -281,55 +286,58 @@
   }
 }
 
+.fullscreen .file-explorer-panel {
+  top: 0;
+  bottom: 0;
+  left: 35px;
+
+  &.explorer-collapsed {
+    left: -165px;
+  }
+}
+
 .file-explorer-panel {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 35px;
-    width: 200px;
-    z-index: 1000;
-    background-color: whitesmoke;
-    color: grey;
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    z-index: 10;
+  position: absolute;
+  top: 36px;
+  bottom: 1px;
+  width: 200px;
+  z-index: 1000;
+  background-color: whitesmoke;
+  color: grey;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  z-index: 10;
+  border-right: 1px solid #ccc;
 
-    &.explorer-collapsed {
-      left: -165px;
-    }
-}
-
-.file-icon {
-  display: inline-block;
-  margin: 2px;
-  width: 16px;
-  height: 16px;
-  background-size: 16px 16px;
-  background-image: url(../ember-frost-demo-components/file.png)
-}
-
-.file-explorer-panel .folder {
-  &>.file-entry {
-    font-weight: bold;
-
-    .file-icon {
-      background-image: url(../ember-frost-demo-components/folder.png);
-    }
+  &.explorer-collapsed {
+    left: -200px;
 
     svg.frost-icon {
-      visibility: visible;
-      fill: #999;
-      transform: rotate(-90deg);
+      transform: rotate(180deg)
+    }
+  }
+
+  .folder {
+    &>.file-entry {
+      font-weight: bold;
+
+      .file-icon {
+        background-image: url(../ember-frost-demo-components/svg/folder.svg);
+      }
+
+      svg.frost-icon {
+        visibility: visible;
+        fill: #999;
+        transform: rotate(-90deg);
+      }
     }
   }
 
   &.collapsed>.file-entry svg.frost-icon {
     transform: rotate(180deg);
   }
-}
 
-
-.file-explorer-panel .file-entry {
+  .file-entry {
     display: flex;
     align-items: center;
     padding: 2px 20px 2px 10px;
@@ -349,24 +357,40 @@
       height: 14px;
       margin: 2px;
     }
+  }
+}
+
+.file-icon {
+  display: inline-block;
+  margin: 2px;
+  width: 16px;
+  height: 16px;
+  background-size: 16px 16px;
+  background-image: url(../ember-frost-demo-components/svg/file.svg)
 }
 
 .explorer-tab {
-    position: absolute;
-    height: 150px;
-    right: -25px;
-    width: 25px;
-    cursor: pointer;
-}
-
-.explorer-tab span {
-  display: flex;
+  position: absolute;
+  height: 150px;
+  right: -25px;
   width: 25px;
-  height: 25px;
-  border-right: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
+
+  span {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg.frost-icon {
+    width: 14px;
+    height: 14px;
+    fill: #888;
+  }
 }
 
 .tab-gutter {
@@ -374,14 +398,4 @@
   height: 25px;
   background-color: whitesmoke;
   border-bottom: 1px solid #ccc;
-}
-
-.explorer-tab svg.frost-icon {
-    width: 14px;
-    height: 14px;
-    fill: #888;
-}
-
-.explorer-collapsed svg.frost-icon {
-  transform: rotate(180deg)
 }

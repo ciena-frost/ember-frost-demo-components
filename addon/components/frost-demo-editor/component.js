@@ -49,28 +49,34 @@ export default Ember.Component.extend(PropTypeMixin, {
 
     let path = this.get('path')
 
-    this.set('fileTree', this.rawToFileTree(this.getFile(path)))
+    this.set('fileTree', this.rawToFileTree(path))
     this.set('source', this.getFile(`${path}/controller.js`))
     this.set('documentation', this.getFile(`${path}/README.md`))
   },
 
   /**
    * Converts the directory object returned from broccoli-raw into file tree nodes
-   * @param {Array} rawDir - list of file objects
+   * @param {String} path - the root path
    * @returns {FileTreeNode[]} list of file tree nodes
    */
-  rawToFileTree (rawDir) {
-    const fileTree = []
+  rawToFileTree (path) {
+    const rawDir = this.getFile(path)
+    const fileTreeRoot = {
+      name: path,
+      type: 'directory',
+      childNodes: []
+    }
+
     _.forEach(rawDir, (entry, name) => {
       if (_.isArray(entry)) {
-        fileTree.push({
+        fileTreeRoot.childNodes.push({
           name,
           type: 'directory',
           childNodes: this.rawToFileTree(entry)
         })
       } else if (name !== 'README.md') {
         // skip README since that's being shown separately
-        fileTree.push({
+        fileTreeRoot.childNodes.push({
           name,
           type: 'file',
           contents: entry,
@@ -79,7 +85,7 @@ export default Ember.Component.extend(PropTypeMixin, {
       }
     })
 
-    return fileTree
+    return [fileTreeRoot]
   },
 
   /**
@@ -118,7 +124,6 @@ export default Ember.Component.extend(PropTypeMixin, {
 
   actions: {
     onFileClick (filePath) {
-      const route = this.get('path')
       const ext = path.extname(filePath)
       const extToLang = {
         '.hbs': 'handlebars',
@@ -126,7 +131,7 @@ export default Ember.Component.extend(PropTypeMixin, {
         '.md': 'markdown'
       }
       this.setProperties({
-        'source': this.getFile(path.join(route, filePath)),
+        'source': this.getFile(filePath),
         'mode': extToLang[ext],
         'collapseExplorer': true
       })
