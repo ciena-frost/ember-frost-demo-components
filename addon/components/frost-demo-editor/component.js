@@ -1,8 +1,10 @@
 /* globals Prism */
 
 import Ember from 'ember'
+import _ from 'lodash'
 import layout from './template'
-import files from 'ember-frost-demo-components/files'
+import files from 'ember-frost-demo-components/raw'
+import path from 'npm:path'
 import computed, {readOnly} from 'ember-computed-decorators'
 import PropTypeMixin, {PropTypes} from 'ember-prop-types'
 
@@ -12,7 +14,9 @@ export default Ember.Component.extend(PropTypeMixin, {
   propTypes: {
     codeTheme: PropTypes.string,
     path: PropTypes.string.isRequired,
-    showCode: PropTypes.bool
+    showCode: PropTypes.bool,
+    mode: PropTypes.string,
+    collapseExplorer: PropTypes.bool
   },
 
   getDefaultProps () {
@@ -21,7 +25,10 @@ export default Ember.Component.extend(PropTypeMixin, {
       documentation: '',
       path: '',
       showCode: false,
-      source: ''
+      source: '',
+      mode: 'javascript',
+      fileTree: [],
+      collapseExplorer: true
     }
   },
 
@@ -41,19 +48,57 @@ export default Ember.Component.extend(PropTypeMixin, {
     this._super(...arguments)
 
     let path = this.get('path')
-    this.set('source', this.getFile(`${path}.js`))
-    this.set('documentation', this.getFile(`${path}.md`))
+
+    this.set('fileTree', this.rawToFileTree(path))
+    this.set('source', this.getFile(`${path}/controller.js`))
+    this.set('documentation', this.getFile(`${path}/README.md`))
+  },
+
+  /**
+   * Converts the directory object returned from broccoli-raw into file tree nodes
+   * @param {String} path - the root path
+   * @returns {FileTreeNode[]} list of file tree nodes
+   */
+  rawToFileTree (path) {
+    const rawDir = this.getFile(path)
+    const fileTreeRoot = {
+      name: path,
+      type: 'directory',
+      childNodes: []
+    }
+
+    _.forEach(rawDir, (entry, name) => {
+      if (_.isArray(entry)) {
+        fileTreeRoot.childNodes.push({
+          name,
+          type: 'directory',
+          childNodes: this.rawToFileTree(entry)
+        })
+      } else if (name !== 'README.md') {
+        // skip README since that's being shown separately
+        fileTreeRoot.childNodes.push({
+          name,
+          type: 'file',
+          contents: entry,
+          childNodes: []
+        })
+      }
+    })
+
+    return [fileTreeRoot]
   },
 
   /**
    * Gets the text file at path
-   * @param {String} path - Path to file relative to tests/dummy/files
+   * @param {String} _path - Path to file relative to tests/dummy/files
    * @returns {String} the file contents
    */
-  getFile (path) {
-    let key = path.replace('/', '.')
+  getFile (_path) {
+    let baseName = path.basename(_path)
+    let dirPath = path.dirname(_path).replace(/^\./, '')
 
-    return files[key] || 'No content found'
+    let dir = dirPath ? Ember.get(files, dirPath.replace('/', '.')) : files
+    return dir[baseName] || 'No content found'
   },
 
   didInsertElement () {
@@ -75,5 +120,21 @@ export default Ember.Component.extend(PropTypeMixin, {
 
   didRender () {
     Prism.highlightAll(this.$()[0])
+  },
+
+  actions: {
+    onFileClick (filePath) {
+      const ext = path.extname(filePath)
+      const extToLang = {
+        '.hbs': 'handlebars',
+        '.js': 'javascript',
+        '.md': 'markdown'
+      }
+      this.setProperties({
+        'source': this.getFile(filePath),
+        'mode': extToLang[ext],
+        'collapseExplorer': true
+      })
+    }
   }
 })

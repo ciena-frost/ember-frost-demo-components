@@ -32,7 +32,7 @@ ember install ember-frost-demo-components
   ```js
   var app = EmberApp(defaults, {
     codemirror: {
-      modes: ['javascript'],
+      modes: ['javascript', 'handlebars', 'markdown'],
       // frost-demo-editor defaults to 'mdn-like'
       themes: ['mdn-like']
     },
@@ -74,25 +74,21 @@ ember install ember-frost-demo-components
   This generates the following files
   ```
   tests/dummy
-    └── files
-      └── my-demo.js
-      └── my-demo.md
     └── app/pods
       └── my-demo
         └── controller.js
         └── route.js
         └── template.hbs
+        └── README.md
   ```
 
-5. Update `my-demo.js` and `my-demo.md` with the source code and documentation.
-
-6. Update `router.js` with the new routes.
+5. Update `router.js` with the new routes.
 
   ```js
   router.map('my-demo')
   ```
 
-7. Continue steps 3-6 for each demo you want to generate.
+6. Continue steps 3-5 for each demo you want to generate.
 
 ## Components
 

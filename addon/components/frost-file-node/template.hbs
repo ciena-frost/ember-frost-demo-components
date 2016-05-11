@@ -1,0 +1,12 @@
+<div class='file-entry' {{action 'onFileClick'}}>
+  <span class='indent' style={{indentStyle}} />
+  {{frost-icon icon='frost/chevron'}}
+  <span class='file-icon' />
+  <span class='file-name'>{{fileNode.name}}</span>
+</div>
+
+{{#if (and isFolder (not isCollapsed))}}
+  {{#each fileNode.childNodes as |node|}}
+    {{frost-file-node fileNode=node indentLevel=nextIndentLevel onFileClick='onChildNodeClick'}}
+  {{/each}}
+{{/if}}

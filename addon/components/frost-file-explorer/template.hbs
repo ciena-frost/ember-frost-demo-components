@@ -1,0 +1,8 @@
+<div class='explorer-tab'>
+  <span>
+    {{frost-icon icon='frost/chevron'}}
+  </span>
+</div>
+{{#each fileTree as |node|}}
+  {{frost-file-node fileNode=node onFileClick='onFileClick'}}
+{{/each}}
