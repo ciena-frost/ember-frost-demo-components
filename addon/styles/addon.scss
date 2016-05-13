@@ -276,8 +276,15 @@
     .demo-doc, .demo-code {
       width: calc(100% - 35px);
       margin-left: 35px;
-      height: calc(100% - 25px);
       overflow-y: auto;
+    },
+
+    .demo-doc {
+      height: 100%;
+    }
+
+    .demo-code {
+      height: calc(100% - 25px);
     }
   }
 
