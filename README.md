@@ -37,7 +37,7 @@ ember install ember-frost-demo-components
       themes: ['mdn-like']
     },
     'ember-prism': {
-      // whatever your preference
+      // we use coy for frost demos
       theme: 'coy',
       components: ['javascript']
     }
@@ -48,7 +48,7 @@ ember install ember-frost-demo-components
 2. Update your application template to include `frost-demo-navbar`
 
   ```hbs
-  {{frost-demo-bar links=links}}
+  {{frost-demo-navbar links=links}}
   {{outlet}}
   ```
 
