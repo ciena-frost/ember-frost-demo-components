@@ -16,7 +16,11 @@ describeComponent(
       'component:ivy-codemirror',
       'component:markdown-to-html',
       'component:frost-file-explorer',
-      'helper:if'
+      'component:frost-file-node',
+      'component:frost-icon',
+      'helper:if',
+      'helper:not',
+      'helper:and'
     ],
 
     beforeSetup () {
