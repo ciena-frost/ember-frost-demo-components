@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'dummy',
     podModulePrefix: 'dummy/pods',
     environment: environment,
-    rootURL: '/ember-frost-demo-components',
+    baseURL: '/ember-frost-demo-components',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {}
@@ -16,12 +16,12 @@ module.exports = function (environment) {
   switch (environment) {
     case 'development':
       _.assign(ENV, {
-        rootURL: '/'
+        baseURL: '/'
       })
       break
     case 'test':
       _.assign(ENV, {
-        rootURL: '/',
+        baseURL: '/',
         locationType: 'none'
       })
 
