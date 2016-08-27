@@ -11,7 +11,7 @@
           {{#if link.links}}{{frost-icon class='expand' icon='frost/expand-collapse'}}{{/if}}
         </div>
         {{#if link.links}}
-          {{#frost-popover place='bottom' as |close|}}
+          {{#frost-popover position='bottom' as |close|}}
            <div class='popup-menu'>
              <ul>
                {{#each link.links as |link|}}

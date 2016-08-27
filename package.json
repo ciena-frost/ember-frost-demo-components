@@ -42,7 +42,7 @@
     "ember-frost-core": "0.16.0",
     "ember-load-initializers": "^0.5.1",
     "ember-lodash": "0.0.10",
-    "ember-one-way-controls": "0.8.3",
+    "ember-one-way-controls": "1.1.0",
     "ember-prism": "0.0.7",
     "ember-prop-types": "^2.0.0",
     "ember-resolver": "^2.0.3",

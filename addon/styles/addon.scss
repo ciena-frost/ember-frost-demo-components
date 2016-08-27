@@ -88,53 +88,36 @@
   }
 }
 
-.tooltip.bottom.tooltip-frost-popover {
-  border: none;
-  background: transparent;
+.popup-menu {
+  text-align: left;
 
-  &:after {
-    top: 1px;
-    border-top: 0px;
-    border-bottom: 10px solid white;
-    border-left:  8px solid transparent;
-    border-right: 8px solid transparent;
-    background: transparent;
-    height: 0;
-    width: 0;
-    margin-left: -5px;
-    transform: none;
-    pointer-events: none;
-    position: absolute;
+  a {
+    text-decoration: none
   }
 
-  .popup-menu {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    color: #404041;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
     width: 100%;
-    background: #FFF;
-    border-radius: 3px;
-    box-shadow: 0 0 5px 5px rgba(146,148,151,.5);
-    text-shadow: none;
 
-    a {
-      text-decoration: none
+    &:hover {
+      background: rgba(0,158,239,.08);
     }
+  }
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
-
-    li {
-      border-bottom: solid 1px #E8E8EF;
-      color: #404041;
-      cursor: pointer;
-      height: 30px;
-      line-height: 30px;
-      padding: 0 15px;
-      width: 100%;
-
-      &:hover {
-        background: rgba(0,158,239,.08);
+  a {
+    &:not(:last-child) {
+      li {
+        border-bottom: solid 1px #E8E8EF;
       }
     }
   }
