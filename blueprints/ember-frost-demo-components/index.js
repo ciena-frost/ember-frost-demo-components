@@ -9,7 +9,7 @@ module.exports = {
         {name: 'ivy-codemirror', target: '^1.4.0'},
         {name: 'ember-cli-showdown', target: '^2.5.0'},
         {name: 'ember-prism', target: '>=0.0.7 <2.0.0'},
-        {name: 'ember-frost-popover', target: '0.0.1'}
+        {name: 'ember-frost-popover', target: '^1.1.0'}
       ]
     })
   },
