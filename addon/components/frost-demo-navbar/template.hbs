@@ -1,6 +1,6 @@
 <div class='demo-navbar'>
   {{#frost-button class='brand hoverable-action' priority='' size=''}}
-      {{frost-icon icon='app/company'}}
+      {{frost-icon icon='company' pack='frost-demo-components'}}
   {{/frost-button}}
 
   {{#each links as |link|}}
@@ -8,7 +8,7 @@
       {{#frost-button class='navigation menu hoverable-action' priority='' size=''}}
         <div class='icon-text'>
           <div class='text'>{{link.title}}</div>
-          {{#if link.links}}{{frost-icon class='expand' icon='frost/expand-collapse'}}{{/if}}
+          {{#if link.links}}{{frost-icon class='expand' icon='expand-collapse'}}{{/if}}
         </div>
         {{#if link.links}}
           {{#frost-popover position='bottom' as |close|}}

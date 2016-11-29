@@ -14,46 +14,49 @@
   },
   "repository": "git@github.com:ciena-frost/ember-frost-demo-components.git",
   "engines": {
-    "node": ">= 5.0.0"
+    "node": ">= 6.0.0"
   },
   "author": "Sophy Pal <sophypal>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "ember-ajax": "^2.4.1",
-    "ember-browserify": "^1.1.9",
-    "ember-cli": "^2.6.3",
-    "ember-cli-app-version": "^1.0.0",
+    "ember-browserify": "^1.1.13",
+    "ember-cli": "~2.8.0",
     "ember-cli-blanket": "0.9.8",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-htmlbars": "^1.0.3",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-inject-live-reload": "^1.4.0",
-    "ember-cli-mirage": "0.2.1",
-    "ember-cli-mocha": "0.10.4",
+    "ember-cli-mocha": "0.11.0",
     "ember-cli-release": "^0.2.9",
     "ember-cli-showdown": "^2.5.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-test-loader": "1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-computed-decorators": "0.2.2",
-    "ember-data": "^2.5.0",
+    "ember-concurrency": "0.7.15",
+    "ember-data": "~2.8.0",
     "ember-disable-prototype-extensions": "^1.1.0",
+    "ember-elsewhere": "~0.4.1",
     "ember-export-application-global": "^1.0.5",
-    "ember-frost-core": "0.16.0",
+    "ember-frost-core": "^1.0.4",
+    "ember-frost-popover": "^4.0.0",
+    "ember-hook": "^1.3.5",
     "ember-load-initializers": "^0.5.1",
     "ember-lodash": "0.0.10",
-    "ember-one-way-controls": "1.1.0",
+    "ember-lodash-shim": "0.1.4",
     "ember-prism": "0.0.7",
-    "ember-prop-types": "^2.0.0",
+    "ember-prop-types": "^3.0.2",
     "ember-resolver": "^2.0.3",
     "ember-sinon": "0.5.1",
-    "ember-test-utils": "0.2.0",
-    "ember-truth-helpers": "^1.2.0",
+    "ember-test-utils": "1.1.2",
+    "ember-truth-helpers": "1.2.0",
     "eslint": "^3.1.1",
-    "eslint-config-frost-standard": "^3.0.0",
+    "eslint-config-frost-standard": "^4.0.0",
     "ivy-codemirror": "^1.4.0",
-    "loader.js": "^4.0.1"
+    "loader.js": "^4.0.1",
+    "lodash-es": "4.14.1"
   },
   "keywords": [
     "ember-addon",
@@ -68,5 +71,8 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "ember-frost-icon-pack": {
+    "name": "frost-demo-components"
   }
 }
