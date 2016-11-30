@@ -22,6 +22,7 @@ install:
 - npm install
 - bower install
 after_success:
+- COVERAGE=true ember test
 - .travis/publish-coverage.sh
 addons:
   apt:
