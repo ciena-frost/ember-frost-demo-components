@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-demo-components",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A collection of components and blueprints for showcasing frost components",
   "directories": {
     "doc": "doc",
