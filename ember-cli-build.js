@@ -16,6 +16,9 @@ module.exports = function (defaults) {
     },
     sassOptions: {
       includePaths: []
+    },
+    babel: {
+      optional: ['es7.decorators']
     }
   })
 
