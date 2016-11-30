@@ -1,15 +1,24 @@
 @import './node_modules/ember-frost-core/addon/styles/addon';
 @import './github-markdown';
 
-.tooltip-frost-popover .frost-button {
-  width: 100%;
+$demo-nav-container-hoverable-action-hover-border: #009ade;
+$demo-navbar-bg-color: #33424f;
+$demo-navbar-box-shadow: rgba(0, 0, 0, .5);
+$popup-menu-item: #404041;
+$popup-menu-item-hover: rgba(0, 158, 239, .08);
+$popup-menu-link-border: rgba(0, 158, 239, .08)#e8e8ef;
+
+.tooltip-frost-popover {
+  .frost-button {
+    width: 100%;
+  }
 }
 
 .demo-navbar-container {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   z-index: 9000;
 
   .frost-button {
@@ -20,8 +29,8 @@
     }
 
     .text {
-      color: $frost-color-grey-5;
       margin-left: 0;
+      color: $frost-color-grey-5;
     }
 
     .icon-text {
@@ -29,61 +38,90 @@
     }
   }
 
-  .app-bar-icon, .frost-icon, .frost-svg {
-    height: 35px;
+  .app-bar-icon,
+  .frost-icon,
+  .frost-svg {
     width: 35px;
+    height: 35px;
     transition: transform .2s;
   }
 
-  .frost-icon.expand {
-    height: 18px;
-    width: 18px;
-    margin: 5px;
+  .frost-icon {
+    &.expand {
+      width: 18px;
+      height: 18px;
+      margin: 5px;
+    }
   }
 
-  .hoverable-action:hover, .active .hoverable-action {
-    color: $frost-color-white;
-    border-bottom: 5px solid #009ADE;
-    border-top: 5px solid transparent;
-    border-radius: 0;
-    margin-bottom: -5px;
-
-    .app-bar-icon, .frost-icon, .frost-svg {
-      transform: scale(1.1);
-    }
-
-    .text {
+  .hoverable-action {
+    &:hover {
+      margin-bottom: -5px;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid $demo-nav-container-hoverable-action-hover-border;
+      border-radius: 0;
       color: $frost-color-white;
+
+      .app-bar-icon,
+      .frost-icon,
+      .frost-svg {
+        transform: scale(1.1);
+      }
+
+      .text {
+        color: $frost-color-white;
+      }
+    }
+  }
+
+  .active {
+    .hoverable-action {
+      margin-bottom: -5px;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid $demo-nav-container-hoverable-action-hover-border;
+      color: $frost-color-white;
+
+      border-radius: 0;
+
+      .app-bar-icon,
+      .frost-icon,
+      .frost-svg {
+        transform: scale(1.1);
+      }
+
+      .text {
+        color: $frost-color-white;
+      }
     }
   }
 }
 
 .demo-navbar {
+  display: flex;
   position: relative;
   height: 50px;
-  display: flex;
-  background-color: #33424F;
+  background-color: $demo-navbar-bg-color;
+  box-shadow: 0 0 2px $demo-navbar-box-shadow;
   z-index: 1;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 
   .brand {
     padding: 0;
 
     .frost-icon {
-      margin: 0px 30px;
-      height: 25px;
-      width: 125px;
       display: flex;
       align-items: center;
+      width: 125px;
+      height: 25px;
+      margin: 0 30px;
     }
   }
 
   .navigation {
+    padding: 0 10px;
     cursor: pointer;
-    padding: 0px 10px;
 
     &.menu {
-      padding: 0px 20px;
+      padding: 0 20px;
     }
   }
 }
@@ -92,7 +130,7 @@
   text-align: left;
 
   a {
-    text-decoration: none
+    text-decoration: none;
   }
 
   ul {
@@ -102,22 +140,22 @@
   }
 
   li {
-    color: #404041;
-    cursor: pointer;
-    height: 30px;
-    line-height: 30px;
-    padding: 0 15px;
     width: 100%;
+    height: 30px;
+    padding: 0 15px;
+    color: $popup-menu-item;
+    line-height: 30px;
+    cursor: pointer;
 
     &:hover {
-      background: rgba(0,158,239,.08);
+      background: $popup-menu-item-hover;
     }
   }
 
   a {
     &:not(:last-child) {
       li {
-        border-bottom: solid 1px #E8E8EF;
+        border-bottom: solid 1px $popup-menu-link-border;
       }
     }
   }
@@ -180,7 +218,8 @@
         padding-left: 10px;
         padding-right: 10px;
 
-        &:hover, &.active {
+        &:hover,
+        &.active {
           background-color: #888;
           border-radius: 10px;
           color: white;
@@ -221,68 +260,73 @@
   .demo-view {
     position: absolute;
     width: calc(100% - 750px);
-    top: 0px;
+    top: 0;
     left: 750px;
   }
 }
 
-.fullscreen .demo-showcase {
-  position: absolute;
-  top: 90px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 1px solid #ccc;
+.fullscreen {
+  .demo-showcase {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #ccc;
 
-  .demo-editor {
-    height: 100%;
-    border: none;
-    border-right: 1px solid #ccc;
-
-    .ribbon {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 35px;
-      height: auto;
-      bottom: 0;
+    .demo-editor {
+      height: 100%;
+      border: none;
       border-right: 1px solid #ccc;
-      border-bottom: none;
-      z-index: 100;
 
-      .tabs {
-        transform: rotate(-90deg) translateX(-200px);
-        transform-origin: left top;
+      .ribbon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 35px;
+        height: auto;
+        bottom: 0;
+        border-right: 1px solid #ccc;
+        border-bottom: none;
+        z-index: 100;
+
+        .tabs {
+          transform: rotate(-90deg) translateX(-200px);
+          transform-origin: left top;
+        }
+      }
+
+      .demo-doc,
+      .demo-code {
+        width: calc(100% - 35px);
+        margin-left: 35px;
+        overflow-y: auto;
+      }
+
+      .demo-doc {
+        height: 100%;
+      }
+
+      .demo-code {
+        height: calc(100% - 25px);
       }
     }
 
-    .demo-doc, .demo-code {
-      width: calc(100% - 35px);
-      margin-left: 35px;
-      overflow-y: auto;
-    },
-
-    .demo-doc {
-      height: 100%;
+    .demo-view {
+      bottom: 0;
     }
-
-    .demo-code {
-      height: calc(100% - 25px);
-    }
-  }
-
-  .demo-view {
-    bottom: 0;
   }
 }
 
-.fullscreen .file-explorer-panel {
-  top: 0;
-  bottom: 0;
-  left: 35px;
+.fullscreen {
+  .file-explorer-panel {
+    top: 0;
+    bottom: 0;
+    left: 35px;
 
-  &.explorer-collapsed {
-    left: -165px;
+    &.explorer-collapsed {
+      left: -165px;
+    }
   }
 }
 
@@ -294,7 +338,7 @@
   z-index: 1000;
   background-color: whitesmoke;
   color: grey;
-  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 0 10px rgba(0, 0, 0, .1);
   font-size: 16px;
   z-index: 10;
   border-right: 1px solid #ccc;
@@ -302,8 +346,10 @@
   &.explorer-collapsed {
     left: -200px;
 
-    svg.frost-icon {
-      transform: rotate(180deg)
+    svg {
+      &.frost-icon {
+        transform: rotate(180deg)
+      }
     }
   }
 
@@ -315,10 +361,12 @@
         background-image: url(../ember-frost-demo-components/svg/folder.svg);
       }
 
-      svg.frost-icon {
-        visibility: visible;
-        fill: #999;
-        transform: rotate(-90deg);
+      svg {
+        &.frost-icon {
+          visibility: visible;
+          fill: #999;
+          transform: rotate(-90deg);
+        }
       }
     }
   }
@@ -336,16 +384,18 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(0,83,159,0.65);
+      background-color: rgba(0,83,159,.65);
       color: white;
     }
 
-    svg.frost-icon {
-      display: block;
-      visibility: hidden;
-      width: 14px;
-      height: 14px;
-      margin: 2px;
+    svg {
+      &.frost-icon {
+        display: block;
+        visibility: hidden;
+        width: 14px;
+        height: 14px;
+        margin: 2px;
+      }
     }
   }
 }
@@ -376,10 +426,12 @@
     justify-content: center;
   }
 
-  svg.frost-icon {
-    width: 14px;
-    height: 14px;
-    fill: #888;
+  svg {
+    &.frost-icon {
+      width: 14px;
+      height: 14px;
+      fill: #888;
+    }
   }
 }
 

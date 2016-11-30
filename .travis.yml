@@ -1,7 +1,8 @@
 language: node_js
-sudo: false
+sudo: required
+dist: trusty
 node_js:
-- '5.3'
+- '6.9'
 branches:
   except:
   - /^v[0-9\.]+/
@@ -9,16 +10,20 @@ before_install:
 - npm install -g coveralls pr-bumper
 - pr-bumper check
 before_script:
+- export CHROME_BIN=/usr/bin/google-chrome
 - "export DISPLAY=:99.0"
 - "sh -e /etc/init.d/xvfb start"
 - sleep 3 # give xvfb some time to start
+- sudo apt-get update
+- sudo apt-get install -y libappindicator1 fonts-liberation
+- wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+- sudo dpkg -i google-chrome*.deb
 install:
 - npm install
 - bower install
 after_success:
-- sed -i -- 's/SF:ember-frost-demo-components\/\(.*\)/SF:addon\/\1.js/' coverage/lcov.info
-  && rm -f coverage/lcov.info--
-- cat coverage/lcov.info | coveralls
+- COVERAGE=true ember test
+- .travis/publish-coverage.sh
 addons:
   apt:
     sources:
