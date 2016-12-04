@@ -4,26 +4,33 @@
   {{/frost-button}}
 
   {{#each links as |link|}}
-    {{#link-to link.route}}
+    {{#if link.links}}
       {{#frost-button class='navigation menu hoverable-action' priority='' size=''}}
         <div class='icon-text'>
           <div class='text'>{{link.title}}</div>
           {{#if link.links}}{{frost-icon class='expand' icon='expand-collapse'}}{{/if}}
         </div>
-        {{#if link.links}}
-          {{#frost-popover position='bottom' as |close|}}
-           <div class='popup-menu'>
-             <ul>
-               {{#each link.links as |link|}}
-                {{#link-to link.route}}
-                   <li id='{{link.route}}'>{{link.title}}</li>
-                {{/link-to}}
-               {{/each}}
-             </ul>
-           </div>
-         {{/frost-popover}}
-        {{/if}}
+        {{#frost-popover position='bottom' as |close|}}
+         <div class='popup-menu'>
+           <ul>
+             {{#each link.links as |link|}}
+              {{#link-to link.route}}
+                 <li id='{{link.route}}'>{{link.title}}</li>
+              {{/link-to}}
+             {{/each}}
+           </ul>
+         </div>
+       {{/frost-popover}}
       {{/frost-button}}
-    {{/link-to}}
+    {{else}}
+      {{#link-to link.route}}
+        {{#frost-button class='navigation menu hoverable-action' priority='' size=''}}
+          <div class='icon-text'>
+            <div class='text'>{{link.title}}</div>
+            {{#if link.links}}{{frost-icon class='expand' icon='expand-collapse'}}{{/if}}
+          </div>
+        {{/frost-button}}
+      {{/link-to}}
+    {{/if}}
   {{/each}}
 </div>
