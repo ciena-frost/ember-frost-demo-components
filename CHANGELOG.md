@@ -1,3 +1,7 @@
+# 2.0.1
+
+* **Fixed** bug when specifying route and links for a given link. In this scenario the DOM would contain nested anchor tags which is invalid and would cause the nested links to redirect but then go back to the back of the parent link.
+
 # 2.0.0
 * **Updated** `ember@~2.8.0`
 * **Updated** `ember-frost-core@^1.0.0`
