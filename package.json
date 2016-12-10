@@ -57,7 +57,7 @@
     "ember-truth-helpers": "1.2.0",
     "eslint": "^3.1.1",
     "eslint-config-frost-standard": "^4.0.0",
-    "ivy-codemirror": "^1.4.0",
+    "ivy-codemirror": "^2.0.3",
     "loader.js": "^4.0.1",
     "lodash-es": "4.14.1",
     "remark-cli": "^2.1.0",
