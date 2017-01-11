@@ -48,6 +48,7 @@ describeComponent(
     describe('computed propety codeClass', function () {
       it('computed property codeClass returns active when showCode is true', function () {
         component = this.subject({
+          path: 'fullscreen',
           showCode: true
         })
 
@@ -56,6 +57,7 @@ describeComponent(
 
       it('computed property codeClass returns active when showCode is false', function () {
         component = this.subject({
+          path: 'fullscreen',
           showCode: false
         })
 
@@ -66,6 +68,7 @@ describeComponent(
     describe('computed property docClass', function () {
       it('computed property docClass returns active when showCode is not true', function () {
         component = this.subject({
+          path: 'fullscreen',
           showCode: false
         })
 
@@ -74,6 +77,7 @@ describeComponent(
 
       it('computed property docClass returns active when showCode is true', function () {
         component = this.subject({
+          path: 'fullscreen',
           showCode: true
         })
 
@@ -84,6 +88,7 @@ describeComponent(
     describe('afterRender', function () {
       beforeEach(function () {
         component = this.subject({
+          path: 'fullscreen',
           showCode: false
         })
         this.render()
