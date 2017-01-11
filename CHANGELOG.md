@@ -1,3 +1,9 @@
+# 3.0.1
+
+* **Fixed** failing tests.
+* **Fixed** `ember-prop-types` errors.
+* **Fixed** CI configuration so it will run tests.
+
 # 3.0.0
 No CHANGELOG section found in Pull Request description.
 Use a `# CHANGELOG` section in your Pull Request description to auto-populate the `CHANGELOG.md`
