@@ -1,14 +1,32 @@
 <div class='demo-navbar'>
-  {{#frost-button class='brand hoverable-action' priority='' size=''}}
-      {{frost-icon icon='company' pack='frost-demo-components'}}
+  {{#frost-button
+    class='brand hoverable-action'
+    hook=(concat hook '-brandAction')
+    priority=''
+    size=''
+  }}
+    {{frost-icon
+      hook=(concat hook '-brandImage')
+      icon='company'
+      pack='frost-demo-components'
+    }}
   {{/frost-button}}
 
   {{#each links as |link|}}
     {{#if link.links}}
-      {{#frost-button class='navigation menu hoverable-action' priority='' size=''}}
+      {{#frost-button
+        class='navigation menu hoverable-action'
+        hook=(concat hook '-linkAction')
+        priority=''
+        size=''
+      }}
         <div class='icon-text'>
           <div class='text'>{{link.title}}</div>
-          {{#if link.links}}{{frost-icon class='expand' icon='expand-collapse'}}{{/if}}
+          {{frost-icon
+            class='expand'
+            hook=(concat hook '-expandIcon')
+            icon='expand-collapse'
+          }}
         </div>
         {{#frost-popover position='bottom' as |close|}}
          <div class='popup-menu'>
@@ -24,12 +42,13 @@
       {{/frost-button}}
     {{else}}
       {{#link-to link.route}}
-        {{#frost-button class='navigation menu hoverable-action' priority='' size=''}}
-          <div class='icon-text'>
-            <div class='text'>{{link.title}}</div>
-            {{#if link.links}}{{frost-icon class='expand' icon='expand-collapse'}}{{/if}}
-          </div>
-        {{/frost-button}}
+        {{frost-button
+          class='navigation menu hoverable-action'
+          hook=(concat hook '-linkAction')
+          priority=''
+          size=''
+          text=link.title
+        }}
       {{/link-to}}
     {{/if}}
   {{/each}}
