@@ -8,6 +8,7 @@ export default Ember.Component.extend(PropTypeMixin, {
   tagName: 'div',
   classNameBindings: ['isFolder:folder:file', 'isCollapsed:collapsed'],
   layout,
+  hook: 'file-node',
   propTypes: {
     fileNode: PropTypes.object.isRequired,
     indentLevel: PropTypes.number,

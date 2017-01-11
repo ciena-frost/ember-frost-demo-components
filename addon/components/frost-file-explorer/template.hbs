@@ -1,6 +1,10 @@
 <div class='explorer-tab'>
   <span>
-    {{frost-icon icon='chevron' pack='frost'}}
+    {{frost-icon
+      hook=(concat hook '-chevronIcon')
+      icon='chevron'
+      pack='frost'
+    }}
   </span>
 </div>
 {{#each fileTree as |node|}}

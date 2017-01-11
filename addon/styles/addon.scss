@@ -28,6 +28,10 @@ $popup-menu-link-border: rgba(0, 158, 239, .08)#e8e8ef;
       box-shadow: none;
     }
 
+    &.medium {
+      height: 50px;
+    }
+
     .text {
       margin-left: 0;
       color: $frost-color-grey-5;
@@ -105,7 +109,9 @@ $popup-menu-link-border: rgba(0, 158, 239, .08)#e8e8ef;
   z-index: 1;
 
   .brand {
-    padding: 0;
+    &.medium {
+      padding: 0;
+    }
 
     .frost-icon {
       display: flex;

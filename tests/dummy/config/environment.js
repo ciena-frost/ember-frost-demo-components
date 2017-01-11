@@ -10,7 +10,12 @@ module.exports = function (environment) {
     EmberENV: {
       FEATURES: {}
     },
-    APP: {}
+    APP: {},
+    'ember-prop-types': {
+      spreadProperty: 'options',
+      throwErrors: true,
+      validateOnUpdate: true
+    }
   }
 
   switch (environment) {

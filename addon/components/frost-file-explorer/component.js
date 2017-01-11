@@ -6,6 +6,7 @@ export default Ember.Component.extend(PropTypeMixin, {
   layout,
   classNames: ['file-explorer-panel'],
   classNameBindings: ['isCollapsed:explorer-collapsed'],
+  hook: 'file-explorer',
   propTypes: {
     fileTree: PropTypes.array,
     isCollapsed: PropTypes.bool

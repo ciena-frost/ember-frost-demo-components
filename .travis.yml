@@ -21,8 +21,10 @@ before_script:
 install:
 - npm install
 - bower install
-after_success:
+script:
+- npm run lint
 - COVERAGE=true ember test
+after_success:
 - .travis/publish-coverage.sh
 addons:
   apt:
