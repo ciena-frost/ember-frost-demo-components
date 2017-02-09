@@ -1,3 +1,10 @@
+# 3.1.0
+* **Updated** integration/unit tests to remove the deprecated use of `describeComponent()`
+* **Updated** ember-test-utils to latest version
+* **Updated** ember-cli-mocha to latest version
+* **Added** ember-cli-chai since it has now been broken out into a separate addon
+
+
 # 3.0.1
 
 * **Fixed** failing tests.
