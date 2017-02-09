@@ -1,9 +1,8 @@
-/* globals describe, beforeEach, afterEach, Prism */
+/* globals Prism */
 
 import {expect} from 'chai'
 import sinon from 'sinon'
-import resolver from '../../helpers/resolver'
-import {describe, it} from 'mocha'
+import {afterEach, beforeEach, describe, it} from 'mocha'
 
 import {unit} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
 
