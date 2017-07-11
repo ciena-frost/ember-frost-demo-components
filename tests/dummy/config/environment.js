@@ -8,7 +8,11 @@ module.exports = function (environment) {
     rootURL: '/ember-frost-demo-components',
     locationType: 'auto',
     EmberENV: {
-      FEATURES: {}
+      FEATURES: {},
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false
+      }
     },
     APP: {},
     'ember-prop-types': {
