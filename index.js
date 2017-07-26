@@ -54,7 +54,9 @@ module.exports = {
             name: 'raw'
           })
 
-          outputTree = new BabelTranspiler(outputTreeRaw, addonOptions.babel)
+          outputTree = new Funnel(new BabelTranspiler(outputTreeRaw, addonOptions.babel), {
+            destDir: 'modules/'
+          })
         }
       } else {
         outputTree = new Raw([podFiles], {
