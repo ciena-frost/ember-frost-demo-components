@@ -1,14 +1,17 @@
-var _ = require('lodash')
-
+/* eslint-env node */
 module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'dummy',
     podModulePrefix: 'dummy/pods',
     environment: environment,
-    rootURL: '/ember-frost-demo-components',
-    locationType: 'auto',
+    rootURL: '/',
+    locationType: 'hash',
     EmberENV: {
-      FEATURES: {}
+      FEATURES: {},
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false
+      }
     },
     APP: {},
     'ember-prop-types': {
@@ -18,25 +21,27 @@ module.exports = function (environment) {
     }
   }
 
-  switch (environment) {
-    case 'development':
-      _.assign(ENV, {
-        rootURL: '/'
-      })
-      break
-    case 'test':
-      _.assign(ENV, {
-        rootURL: '/',
-        locationType: 'none'
-      })
+  if (environment === 'development') {
+    // ENV.APP.LOG_RESOLVER = true;
+    // ENV.APP.LOG_ACTIVE_GENERATION = true;
+    // ENV.APP.LOG_TRANSITIONS = true;
+    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+  }
 
-      _.assign(ENV.APP, {
-        LOG_ACTIVE_GENERATION: false,
-        LOG_VIEW_LOOKUPS: false,
-        rootElement: '#ember-testing'
-      })
+  if (environment === 'test') {
+    // Testem prefers this...
+    ENV.locationType = 'none'
 
-      break
+    // keep test console output quieter
+    ENV.APP.LOG_ACTIVE_GENERATION = false
+    ENV.APP.LOG_VIEW_LOOKUPS = false
+
+    ENV.APP.rootElement = '#ember-testing'
+  }
+
+  if (environment === 'production') {
+    ENV.rootURL = '/ember-frost-demo-components'
   }
 
   return ENV

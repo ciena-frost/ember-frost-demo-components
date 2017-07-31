@@ -1,7 +1,8 @@
 /* globals Prism */
-
+/* eslint-env node */
 import {expect} from 'chai'
 import sinon from 'sinon'
+import Ember from 'ember'
 import {afterEach, beforeEach, describe, it} from 'mocha'
 
 import {unit} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
