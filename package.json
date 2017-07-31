@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-demo-components",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "A collection of components and blueprints for showcasing frost components",
   "directories": {
     "doc": "doc",
@@ -77,7 +77,7 @@
     "ember-cli-babel": "^5.1.7",
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-sass": "^5.1.0",
-    "ember-cli-version-checker":"~2.0.0"
+    "ember-cli-version-checker": "~2.0.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
