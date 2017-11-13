@@ -27,10 +27,6 @@ module.exports = {
     this._super.init && this._super.init.apply(this, arguments)
   },
 
-  included: function (app) {
-    this._super.included(app)
-  },
-
   treeForAddon: function (tree) {
     const addonTree = this._super.treeForAddon.call(this, tree)
     const podPath = path.join(this.project.root, 'tests', 'dummy', 'app', 'pods')
