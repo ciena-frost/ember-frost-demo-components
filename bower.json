@@ -6,7 +6,6 @@
     "ember-qunit-notifications": "0.1.0",
     "Faker": "^3.0.1",
     "jquery": "2.2.4",
-    "lodash": "^4.13.1",
     "pretender": "^1.1.0",
     "prism": "^1.5.1",
     "showdown": "^1.4.2"

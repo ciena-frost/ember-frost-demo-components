@@ -1,7 +1,6 @@
 /* globals Prism */
 
 import Ember from 'ember'
-import _ from 'lodash'
 import layout from './template'
 import files from 'ember-frost-demo-components/raw'
 import path from 'npm:path'
@@ -67,23 +66,23 @@ export default Ember.Component.extend(PropTypeMixin, {
       childNodes: []
     }
 
-    _.forEach(rawDir, (entry, name) => {
-      if (_.isArray(entry)) {
+    for (const entry in rawDir) {
+      if (Array.isArray(rawDir[entry])) {
         fileTreeRoot.childNodes.push({
-          name,
+          entry,
           type: 'directory',
-          childNodes: this.rawToFileTree(entry)
+          childNodes: this.rawToFileTree(rawDir[entry])
         })
-      } else if (name !== 'README.md') {
+      } else if (entry !== 'README.md') {
         // skip README since that's being shown separately
         fileTreeRoot.childNodes.push({
-          name,
+          entry,
           type: 'file',
-          contents: entry,
+          contents: rawDir[entry],
           childNodes: []
         })
       }
-    })
+    }
 
     return [fileTreeRoot]
   },
