@@ -1,8 +1,9 @@
 import Ember from 'ember'
+const {Component, run} = Ember
 import PropTypeMixin, {PropTypes} from 'ember-prop-types'
 import layout from './template'
 
-export default Ember.Component.extend(PropTypeMixin, {
+export default Component.extend(PropTypeMixin, {
   layout,
   classNames: ['file-explorer-panel'],
   classNameBindings: ['isCollapsed:explorer-collapsed'],
@@ -20,7 +21,7 @@ export default Ember.Component.extend(PropTypeMixin, {
 
   didInsertElement () {
     this._clickHandler = () => {
-      Ember.run.schedule('actions', () => {
+      run.schedule('actions', () => {
         this.set('isCollapsed', !this.get('isCollapsed'))
       })
     }

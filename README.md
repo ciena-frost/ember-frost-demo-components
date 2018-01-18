@@ -27,7 +27,8 @@ ember install ember-frost-demo-components
 
 ## Getting Started
 
-1. This *addon* installs `CodeMirror` and `Prism` for source editing and syntax highlighting.  You must update `ember-cli-build.js` to include options for those *addons* to bring in necessary themes.
+1. This *addon* installs `CodeMirror` and `Prism` for source editing and syntax highlighting.
+You must update `ember-cli-build.js` to include options for those *addons* to bring in necessary themes.
 
   ```js
   var app = EmberApp(defaults, {

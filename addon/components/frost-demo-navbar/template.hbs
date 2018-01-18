@@ -28,17 +28,17 @@
             icon='expand-collapse'
           }}
         </div>
-        {{#frost-popover position='bottom' as |close|}}
-         <div class='popup-menu'>
-           <ul>
-             {{#each link.links as |link|}}
-              {{#link-to link.route}}
-                 <li id='{{link.route}}'>{{link.title}}</li>
-              {{/link-to}}
-             {{/each}}
-           </ul>
-         </div>
-       {{/frost-popover}}
+        {{#frost-popover position='bottom'}}
+          <div class='popup-menu'>
+            <ul>
+              {{#each link.links as |link|}}
+                {{#link-to link.route}}
+                  <li id='{{link.route}}'>{{link.title}}</li>
+                {{/link-to}}
+              {{/each}}
+            </ul>
+          </div>
+        {{/frost-popover}}
       {{/frost-button}}
     {{else}}
       {{#link-to link.route}}

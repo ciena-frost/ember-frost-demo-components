@@ -1,11 +1,12 @@
 /* globals Prism */
 /* eslint-env node */
 import {expect} from 'chai'
-import sinon from 'sinon'
 import Ember from 'ember'
-import {afterEach, beforeEach, describe, it} from 'mocha'
+const {run} = Ember
 
-import {unit} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
+import {unit} from 'ember-test-utils/test-support/setup-component-test'
+import {afterEach, beforeEach, describe, it} from 'mocha'
+import sinon from 'sinon'
 
 const test = unit('frost-demo-editor',
   [
@@ -31,8 +32,8 @@ describe(test.label, function () {
     sandbox.restore()
   })
 
-  describe('computed propety codeClass', function () {
-    it('computed property codeClass returns active when showCode is true', function () {
+  describe('computed property codeClass', function () {
+    it('should return active when showCode is true', function () {
       component = this.subject({
         path: 'fullscreen',
         showCode: true
@@ -41,7 +42,7 @@ describe(test.label, function () {
       expect(component.get('codeClass')).to.equal('active')
     })
 
-    it('computed property codeClass returns active when showCode is false', function () {
+    it('should return active when showCode is false', function () {
       component = this.subject({
         path: 'fullscreen',
         showCode: false
@@ -52,7 +53,7 @@ describe(test.label, function () {
   })
 
   describe('computed property docClass', function () {
-    it('computed property docClass returns active when showCode is not true', function () {
+    it('should return active when showCode is not true', function () {
       component = this.subject({
         path: 'fullscreen',
         showCode: false
@@ -61,7 +62,7 @@ describe(test.label, function () {
       expect(component.get('docClass')).to.equal('active')
     })
 
-    it('computed property docClass returns active when showCode is true', function () {
+    it('should return active when showCode is true', function () {
       component = this.subject({
         path: 'fullscreen',
         showCode: true
@@ -80,14 +81,14 @@ describe(test.label, function () {
       this.render()
     })
 
-    it('calls Prism.highlightAll', function () {
-      expect(Prism.highlightAll).to.have.been.called
+    it('should call Prism.highlightAll', function () {
+      expect(Prism.highlightAll).to.have.callCount(1)
     })
 
     // FIXME: get test passing again (MRD - 2017-01-10)
-    it.skip('sets up click events for the ribbon capsules', function (done) {
+    it.skip('should set up click events for the ribbon capsules', function (done) {
       this.$('.ribbon .code').click()
-      Ember.run(() => {
+      run(() => {
         expect(component.get('showCode')).to.equal(true)
         done()
       })

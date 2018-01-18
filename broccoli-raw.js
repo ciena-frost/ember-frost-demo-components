@@ -13,11 +13,11 @@ const _ = require('lodash')
  * @returns {Object} an object containing the directory file contents
  */
 function readDirectory (srcDir) {
-  var srcTree = {}
-  var entries = fs.readdirSync(srcDir)
+  let srcTree = {}
+  const entries = fs.readdirSync(srcDir)
 
   entries.forEach(function (entry) {
-    var filePath = path.join(srcDir, entry)
+    const filePath = path.join(srcDir, entry)
     if (fs.lstatSync(filePath).isDirectory()) {
       srcTree[entry] = readDirectory(filePath)
     } else {
@@ -50,17 +50,17 @@ utils.inherits(RawPlugin, Plugin)
  * Plugin builder
  */
 RawPlugin.prototype.build = function () {
-  var dirTree = {}
-  var destDir = this.options.destDir || ''
-  var fileName = (this.options.name || 'raw') + '.js'
+  let dirTree = {}
+  const destDir = this.options.destDir || ''
+  const fileName = (this.options.name || 'raw') + '.js'
 
   // merge all inputPaths
   this.inputPaths.forEach(function (inputPath) {
     _.assign(dirTree, readDirectory(inputPath))
   })
 
-  var jsSrc = 'export default ' + JSON.stringify(dirTree)
-  var outputFile = path.join(this.outputPath, destDir, fileName)
+  const jsSrc = 'export default ' + JSON.stringify(dirTree)
+  const outputFile = path.join(this.outputPath, destDir, fileName)
 
   mkdirp.sync(path.dirname(outputFile))
 

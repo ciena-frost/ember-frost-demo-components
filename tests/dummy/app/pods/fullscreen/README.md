@@ -1,4 +1,5 @@
-Specifying `--fullscreen` as an option will generate fullscreen pages.  The entire content is styled to fit inside the browser window dimensions.
+Specifying `--fullscreen` as an option will generate fullscreen pages.  The entire content is styled to fit
+inside the browser window dimensions.
 
 ```bash
 ember generate demo my-awesome-fullscreen-demo --fullscreen --dummy --pod
