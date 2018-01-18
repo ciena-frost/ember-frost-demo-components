@@ -11,9 +11,6 @@ module.exports = function (defaults) {
       theme: 'coy',
       components: ['javascript']
     },
-    'ember-cli-mocha': {
-      useLintTree: false
-    },
     sassOptions: {
       includePaths: []
     },
