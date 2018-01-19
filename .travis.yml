@@ -28,9 +28,6 @@ env:
     - CXX=g++-4.8
     - secure: qc/2jlYb8AXszS80zQFV4SPzy6BcyntpBTh63Z7gydZOnvaDmBnu4uFX7n/Yds7UaYpiO6t9kgMptoIeANGRirpUahurb8f2JDTXiyw3gLm4OSnP0/LJcAXummJixw7wCYOySdtYgckAEFoE9FcDcexQ/tba/FZFnNvfCFR0QROm3XFH+DgRcNQObFzUmDueKp7B6U+KpG9Jk1I2sKZR8Lk4N5PcT7CgpRyt188H9PFyAgPaBDEsZFFBU9ejo2vHso1av3Nw2iTy0CIo7/2TVcsO5IlY46M1SN0IuWYIeL+fl24Km8vsPACbESww5CVmI0fRV7B9/cUPiqXdZCmlldIqAAo2XotoPk+5U8d/2uof0AQnuS/5zA+wsf789+J4cQfTzExv6xRBBTQsAxKTqMrgXJ0rQz2zdEX1oJMzhERMj7t7U01gjGjujsozhBZsHG0Z4GT0an/++OL1biky7yPsb3SlZ5ZOZpHiHgi8UDDkpKEed/WSKPY4Ie03V72EbpIC06Pgdhyyu0PdUbzK/bEgaxr9qEZvGKUlOeRa+L9aqwivtLNkZxMMYvDweuLgZ2wtGxSYf1oOpUQAvi3v4N/pfcMLn6ph4WxlApz7BlGwr74TEJrW1M2ny/I+yknkiNdo0C1LAwRyW9687eVfwIdx4u0FPv7Qpb37gKHxq6o=
 
-matrix:
-  fast_finish: true
-
 before_install:
 - npm config set spin false
 - npm install -g coveralls pr-bumper@^2.0.0
