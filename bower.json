@@ -6,7 +6,7 @@
     "Faker": "^3.0.1",
     "jquery": "2.2.4",
     "pretender": "^1.1.0",
-    "prism": "^1.5.1",
+    "prism": "1.6.0",
     "showdown": "1.5.1"
   },
   "resolutions": {
