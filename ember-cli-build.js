@@ -2,7 +2,7 @@
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon')
 
 module.exports = function (defaults) {
-  var app = new EmberAddon(defaults, {
+  let app = new EmberAddon(defaults, {
     codemirror: {
       modes: ['javascript', 'handlebars', 'markdown'],
       themes: ['mdn-like']
@@ -10,9 +10,6 @@ module.exports = function (defaults) {
     'ember-prism': {
       theme: 'coy',
       components: ['javascript']
-    },
-    'ember-cli-mocha': {
-      useLintTree: false
     },
     sassOptions: {
       includePaths: []

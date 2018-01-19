@@ -1,4 +1,6 @@
-By default, the demo blueprint will create non-fullscreen pages giving you the ability to scroll.  This is useful is you can't fit your demo in the confines of browser window dimensions or if you'd rather not have an inner scroll behavior for the source files.
+By default, the demo blueprint will create non-fullscreen pages giving you the ability to scroll. This is useful
+if you can't fit your demo in the confines of browser window dimensions or if you'd rather not have an
+inner scroll behavior for the source files.
 
 ```bash
 ember generate demo my-awesome-demo --dummy --pod

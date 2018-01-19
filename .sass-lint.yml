@@ -8,7 +8,9 @@ options:
 
 files:
   include: '+(addon|app|tests)/**/styles/**/*.s+(a|c)ss'
-  ignore: '**/dummy/app/styles//**/*.s+(a|c)ss'
+  ignore:
+    - '+(addon|app|tests)/**/styles/**/*.s+(a|c)ss'
+    - '**/dummy/app/styles//**/*.s+(a|c)ss'
 
 # Documentation on all rules available here: https://github.com/sasstools/sass-lint/blob/master/docs/rules
 # 0 - disabled

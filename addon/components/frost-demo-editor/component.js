@@ -1,13 +1,14 @@
 /* globals Prism */
 
 import Ember from 'ember'
+const {$, Component, get, run} = Ember
 import layout from './template'
 import files from 'ember-frost-demo-components/raw'
-import path from 'npm:path'
 import computed, {readOnly} from 'ember-computed-decorators'
 import PropTypeMixin, {PropTypes} from 'ember-prop-types'
+import path from 'npm:path'
 
-export default Ember.Component.extend(PropTypeMixin, {
+export default Component.extend(PropTypeMixin, {
   layout,
   classNames: ['demo-editor'],
   propTypes: {
@@ -96,15 +97,15 @@ export default Ember.Component.extend(PropTypeMixin, {
     let baseName = path.basename(_path)
     let dirPath = path.dirname(_path).replace(/^\./, '')
 
-    let dir = dirPath ? Ember.get(files, dirPath.replace('/', '.')) : files
+    let dir = dirPath ? get(files, dirPath.replace('/', '.')) : files
     return dir[baseName] || 'No content found'
   },
 
   didInsertElement () {
     this._tabClickHandler = (e) => {
-      let target = Ember.$(e.target)
+      let target = $(e.target)
 
-      Ember.run(() => {
+      run(() => {
         const showCode = target.closest('.code').length > 0
         this.set('showCode', showCode)
       })

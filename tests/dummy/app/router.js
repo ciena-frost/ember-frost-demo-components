@@ -9,7 +9,7 @@ const Router = EmberRouter.extend({
 })
 
 Router.map(function () {
-  this.route('non-fullscreen', { path: '/' })
+  this.route('non-fullscreen', {path: '/'})
   this.route('fullscreen')
 })
 

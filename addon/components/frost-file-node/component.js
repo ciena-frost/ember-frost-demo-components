@@ -1,10 +1,12 @@
 import Ember from 'ember'
-import path from 'npm:path'
-import PropTypeMixin, {PropTypes} from 'ember-prop-types'
+const {Component, run} = Ember
+
 import computed, {readOnly} from 'ember-computed-decorators'
+import PropTypeMixin, {PropTypes} from 'ember-prop-types'
+import path from 'npm:path'
 import layout from './template'
 
-export default Ember.Component.extend(PropTypeMixin, {
+export default Component.extend(PropTypeMixin, {
   tagName: 'div',
   classNameBindings: ['isFolder:folder:file', 'isCollapsed:collapsed'],
   layout,
@@ -44,7 +46,7 @@ export default Ember.Component.extend(PropTypeMixin, {
 
   didInsertElement () {
     this._clickHandler = () => {
-      Ember.run.schedule('actions', () => {
+      run.schedule('actions', () => {
         this.set('isCollapsed', !this.get('isCollapsed'))
       })
     }

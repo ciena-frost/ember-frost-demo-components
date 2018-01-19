@@ -1,12 +1,12 @@
 /* eslint-env node */
 'use strict'
 
-var fs = require('fs')
-var Funnel = require('broccoli-funnel')
-var mergeTrees = require('broccoli-merge-trees')
-var path = require('path')
-var Raw = require('./broccoli-raw')
-var VersionChecker = require('ember-cli-version-checker')
+const fs = require('fs')
+const Funnel = require('broccoli-funnel')
+const mergeTrees = require('broccoli-merge-trees')
+const path = require('path')
+const Raw = require('./broccoli-raw')
+const VersionChecker = require('ember-cli-version-checker')
 
 module.exports = {
   name: 'ember-frost-demo-components',
@@ -15,6 +15,7 @@ module.exports = {
     return (this.parent && this.parent.options) || (this.app && this.app.options) || {}
   },
 
+  /* eslint-disable complexity */
   init: function () {
     this.options = this.options || {}
     this.options.babel = this.options.babel || {}
@@ -24,8 +25,9 @@ module.exports = {
       this.options.babel.optional.push('es7.decorators')
     }
 
-    this._super.init && this._super.init.apply(this, arguments)
+    this._super.init && this._super.init.apply(this, arguments) // eslint-disable-line no-unused-expressions
   },
+  /* eslint-enable complexity */
 
   treeForAddon: function (tree) {
     const addonTree = this._super.treeForAddon.call(this, tree)
