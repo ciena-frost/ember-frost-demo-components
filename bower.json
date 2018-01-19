@@ -1,11 +1,7 @@
 {
   "name": "ember-frost-demo-components",
   "dependencies": {
-    "jquery": "2.2.4",
     "prism": "1.6.0",
     "showdown": "1.5.1"
-  },
-  "resolutions": {
-    "jquery": "2.2.4"
   }
 }
