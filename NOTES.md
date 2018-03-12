@@ -13,4 +13,4 @@ ember-hook | is used in the templates of this repository's components to facilit
 
 Dependency | Reason
 --- | ---
-`ember-prism` | **THIS SHOULD BE A DEPENDENCY**  but in version `0.0.8` it is not traversing the tree to correctly find the [Bower directory](https://github.com/shipshapecode/ember-prism/blob/be4919912fee4895964db101296bc523ca2c8093/index.js#L40) when consumed in an add-on so the build will fail when it looks for `undefined/prism/prism.js`
+ember-prism | **THIS SHOULD BE A DEPENDENCY**  but in version `0.0.8` it is not traversing the tree to correctly find the [Bower directory](https://github.com/shipshapecode/ember-prism/blob/be4919912fee4895964db101296bc523ca2c8093/index.js#L40) when consumed in an add-on so the build will fail when it looks for `undefined/prism/prism.js`
