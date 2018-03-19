@@ -63,7 +63,7 @@
     "ember-cli-showdown": "^2.11.0",
     "ember-cli-version-checker": "~2.0.0",
     "ember-computed-decorators": "0.3.0",
-    "ember-frost-core": "^5.1.1",
+    "ember-frost-core": "^7.0.0",
     "ember-frost-popover": "^8.0.0",
     "ember-hook": "1.4.2",
     "ember-prop-types": "^6.0.1",
