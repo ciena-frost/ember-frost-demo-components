@@ -7,9 +7,19 @@ const mergeTrees = require('broccoli-merge-trees')
 const path = require('path')
 const Raw = require('./broccoli-raw')
 const VersionChecker = require('ember-cli-version-checker')
+const {setSvgConfiguration} = require('ember-frost-core/utils/frost-icon-svg')
 
 module.exports = {
   name: 'ember-frost-demo-components',
+
+  included: function () {
+    this.app = this._findHost.call(this) // eslint-disable-line no-useless-call
+
+    // Set ember-cli-svgstore options so that consuming applications don't have to
+    setSvgConfiguration.call(this, 'frost-demo-components')
+
+    this._super.included.apply(this, arguments)
+  },
 
   _getAddonOptions: function () {
     return (this.parent && this.parent.options) || (this.app && this.app.options) || {}
