@@ -1,3 +1,9 @@
+# 6.0.0 (2018-04-16)
+
+* Upgraded `ember-frost-core` to ^8.0.0
+* Installed `ember-cli-svgstore`
+* Updated `frost-icon` functionality to work with new version of `ember-frost-core`
+
 # 5.0.0 (2018-03-19)
 * Updated pull request template
 * Added issue template
