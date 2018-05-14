@@ -1,3 +1,7 @@
+# 7.0.0 (2018-05-14)
+
+* Upgrade `ember-frost-popover` to `^11.0.0`
+
 # 6.0.0 (2018-04-16)
 
 * Upgraded `ember-frost-core` to ^8.0.0
