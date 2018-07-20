@@ -1,3 +1,8 @@
+# 7.0.1 (2018-07-20)
+
+* **Fixed** Travis API key.
+
+
 # 7.0.0 (2018-05-14)
 
 * Upgrade `ember-frost-popover` to `^11.0.0`
